@@ -5,6 +5,7 @@ import type { NextRequest } from 'next/server'
 
 export async function GET() {
   const session = await getServerSession()
+  console.log('Session in /api/folders:', session)
   if (!session?.accessToken) {
     return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
   }
